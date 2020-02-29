@@ -1,4 +1,4 @@
-extern crate arrayvec;
+#[macro_use] extern crate arrayvec;
 #[macro_use] extern crate matches;
 
 use arrayvec::ArrayVec;
@@ -677,4 +677,15 @@ fn test_extend_zst() {
     array.extend((3..5).map(|_| Z));
     assert_eq!(&array[..], &[Z; 5]);
     assert_eq!(array.len(), 5);
+}
+
+use arrayvec::{FixedArray};
+
+const_array_impl!(FixedArrayU8, u8, 1024);
+
+#[test]
+fn test_const_new() {
+    const NEW_ARRAY: FixedArrayU8 = FixedArrayU8::new();
+
+    assert!(NEW_ARRAY.len() == 0);
 }

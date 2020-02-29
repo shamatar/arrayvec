@@ -53,11 +53,13 @@ mod array;
 mod array_string;
 mod char;
 mod errors;
+mod simple_array;
 
 pub use crate::array::Array;
 use crate::array::Index;
 pub use crate::array_string::ArrayString;
 pub use crate::errors::CapacityError;
+pub use crate::simple_array::{FixedArray, SimpleDrain};
 
 
 /// A vector with a fixed capacity.

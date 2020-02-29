@@ -16,12 +16,12 @@ impl<T> Clone for MaybeUninit<T>
 
 impl<T> MaybeUninit<T> {
     /// Create a new MaybeUninit with uninitialized interior
-    pub unsafe fn uninitialized() -> Self {
+    pub const unsafe fn uninitialized() -> Self {
         MaybeUninit { inner: StdMaybeUninit::uninit() }
     }
 
     /// Create a new MaybeUninit from the value `v`.
-    pub fn from(v: T) -> Self {
+    pub const fn from(v: T) -> Self {
         MaybeUninit { inner: StdMaybeUninit::new(v) }
     }
 
